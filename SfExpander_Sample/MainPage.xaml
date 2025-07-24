@@ -34,7 +34,7 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="0,0,20,20"/>
                             </Border.StrokeShape>
-                            <Grid Padding="20,15,20,15">
+                            <Grid Padding="20,15,20,20">
                                 <Label Text="Veg pizza is prepared with the items that meet vegetarian standards by not including any meat or animal tissue products." 
                                        TextColor="#303030" VerticalOptions="Center" FontSize="14" LineBreakMode="WordWrap"/>
                             </Grid>
@@ -43,8 +43,7 @@
                 </syncfusion:SfExpander>
                 <syncfusion:SfExpander x:Name="expander2" HeaderIconPosition="None" IsExpanded="true">
                     <syncfusion:SfExpander.Header>
-                        <Border StrokeThickness="0"
-                                BackgroundColor="#bbbfca">
+                        <Border BackgroundColor="#bbbfca">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="{Binding IsExpanded, Source={x:Reference expander2}, Converter={StaticResource CornerRadiusConverter}}"/>
                             </Border.StrokeShape>
@@ -58,12 +57,11 @@
                         </Border>
                     </syncfusion:SfExpander.Header>
                     <syncfusion:SfExpander.Content>
-                        <Border StrokeThickness="0"
-                                BackgroundColor="#dddddd">
+                        <Border BackgroundColor="#dddddd">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="0,0,20,20"/>
                             </Border.StrokeShape>
-                            <Grid Padding="20,15,20,15">
+                            <Grid Padding="20,15,20,20">
                                 <Label Text="Non-veg pizza is prepared by including the meat and animal tissue products." 
                                        TextColor="#303030" VerticalOptions="Center"
                                        FontSize="14" LineBreakMode="WordWrap"/>
