@@ -3,7 +3,7 @@ This article demonstrates how to add rounded corners for [.NET MAUI SfExpander](
 
 **XAML:**
 
-Add the Border control to the SfExpander.Header or SfExpander.Content and set the StrokeShape with a RoundRectangle to apply the corner radius. You can customize the corner radius based on the expanded state by binding the IsExpanded property and the converter.
+Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_Header) or [SfExpander.Content](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_Content) and set the StrokeShape with a RoundRectangle to apply the corner radius. You can customize the corner radius based on the expanded state by binding the [IsExpanded](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_IsExpanded) property and the converter.
 
  ```xml
     <ContentPage.Content>
