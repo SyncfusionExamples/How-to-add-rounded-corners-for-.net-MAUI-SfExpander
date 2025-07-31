@@ -1,11 +1,19 @@
-# How to add rounded corners for .NET MAUI SfExpander?
-This article demonstrates how to add rounded corners for [.NET MAUI SfExpander](https://www.syncfusion.com/maui-controls/maui-expander). In this example, the Border with StrokeShape as RoundRectangle is used to achieve the rounded corner for SfExpander.
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
+             xmlns:local="clr-namespace:SfExpander_Sample.Helper"
+             x:Class="SfExpander_Sample.MainPage"
+             BackgroundColor="White"
+             Padding="0">
 
-**XAML:**
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ExpanderIconConverter x:Key="ExpanderIconConverter"/>
+            <local:CornerRadiusConverter x:Key="CornerRadiusConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_Header) or [SfExpander.Content](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_Content) and set the StrokeShape with a RoundRectangle to apply the corner radius. You can customize the corner radius based on the expanded state by binding the [IsExpanded](https://help.syncfusion.com/cr/maui/Syncfusion.maui.Expander.SfExpander.html#Syncfusion_Maui_Expander_SfExpander_IsExpanded) property and the converter.
-
- ```xml
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10">
@@ -16,11 +24,8 @@ Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr
                                 <RoundRectangle CornerRadius="{Binding IsExpanded, Source={x:Reference expander1}, Converter={StaticResource CornerRadiusConverter}}"/>
                             </Border.StrokeShape>
                             <Grid HeightRequest="50">
-                                <Label Text="Veg Pizza" TextColor="#495F6E" VerticalOptions="Center" Margin="20,0,0,0" 
-                                       FontSize="16"/>
-                                <Image Source="{Binding IsExpanded, Source={x:Reference expander1}, Converter={StaticResource ExpanderIconConverter}}" 
-                                       Margin="0,0,20,0" HorizontalOptions="End" VerticalOptions="Center"
-                                       HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="Veg Pizza" TextColor="#495F6E" VerticalOptions="Center" Margin="20,0,0,0" FontSize="16"/>
+                                <Image Source="{Binding IsExpanded, Source={x:Reference expander1}, Converter={StaticResource ExpanderIconConverter}}" Margin="0,0,20,0" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
                             </Grid>
                         </Border>
                     </syncfusion:SfExpander.Header>
@@ -29,15 +34,13 @@ Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="0,0,20,20"/>
                             </Border.StrokeShape>
-                            <Grid Padding="20,15,20,15">
+                            <Grid Padding="20,15,20,20">
                                 <Label Text="Veg pizza is prepared with the items that meet vegetarian standards by not including any meat or animal tissue products." 
-                                       TextColor="#303030" VerticalOptions="Center" 
-                                       FontSize="14" LineBreakMode="WordWrap"/>
+                                       TextColor="#303030" VerticalOptions="Center" FontSize="14" LineBreakMode="WordWrap"/>
                             </Grid>
                         </Border>
                     </syncfusion:SfExpander.Content>
                 </syncfusion:SfExpander>
-                
                 <syncfusion:SfExpander x:Name="expander2" HeaderIconPosition="None" IsExpanded="true">
                     <syncfusion:SfExpander.Header>
                         <Border BackgroundColor="#bbbfca">
@@ -58,7 +61,7 @@ Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="0,0,20,20"/>
                             </Border.StrokeShape>
-                            <Grid Padding="20,15,20,15">
+                            <Grid Padding="20,15,20,20">
                                 <Label Text="Non-veg pizza is prepared by including the meat and animal tissue products." 
                                        TextColor="#303030" VerticalOptions="Center"
                                        FontSize="14" LineBreakMode="WordWrap"/>
@@ -69,18 +72,4 @@ Add the Border control to the [SfExpander.Header](https://help.syncfusion.com/cr
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
- ```
-
- **C#**
-
- ```c#
-    public class CornerRadiusConverter : IValueConverter
-    {
-        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
-            return value != null && (bool)value ? new CornerRadius(20, 20, 0, 0) : new CornerRadius(20, 20, 20, 20);
-        }
-    }
- ```
-
-Download the complete sample from [GitHub](https://github.com/SyncfusionExamples/How-to-add-rounded-corners-for-.net-MAUI-SfExpander)
+</ContentPage>
